@@ -5,7 +5,12 @@
   (import "std" "debug"
     (func $debug (param $index i32) (param $offset i32))
   )
-  (memory 1)
+  (import "std" "memory"
+    (memory 1)
+  )
+  ;; test: debug
+  ;; (data (i32.const 0) "\04\00\00\00")
+  ;; (data (i32.const 4) "test")
   (func (export "debug") (param $index i32)
     ;; call $debug($index + 4, *$index)
     get_local $index
