@@ -7,10 +7,12 @@
   )
   (memory 1)
   (func (export "debug") (param $index i32)
-    get_local $index
+    ;; call $debug($index + 4, *$index)
     get_local $index
     i32.const 4
     i32.add
+    get_local $index
+    i32.load
     call $debug
   )
 )
