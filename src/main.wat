@@ -2,7 +2,15 @@
 ;;; which is a virtual DOM library.
 ;;; ------
 (module $main
+  (import "std" "debug"
+    (func $debug (param $index i32) (param $offset i32))
+  )
   (memory 1)
-  (table 1 anyfunc)
-  (func )
+  (func (export "debug") (param $index i32)
+    get_local $index
+    get_local $index
+    i32.const 4
+    i32.add
+    call $debug
+  )
 )
